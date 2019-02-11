@@ -1,6 +1,6 @@
-# myblog
+# rulinzi
 
-> myblog1.0
+> rulinzi1.0
 
 ## Build Setup
 

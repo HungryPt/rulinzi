@@ -1,17 +1,17 @@
 <template>
+  <div>
   <div class= "articlePie">
     <article-header :post=post></article-header>
-    <!-- <vue-markdown :source="content"></vue-markdown> -->
-    <!-- <div style="display:inline-block;width:50%;"> -->
-            <!-- textarea之间不要有空格 -->
-            <!-- <textarea v-model='content'></textarea> -->
-    <!-- </div> -->
     <div class="article-entry">
       <blockquote>
-        <p>为什么要了解下区块链呢？因为区块链最近实在是太火了，火到我爸都听说了，总让我给他科普一下。。。。 </p>
+        <p>{{post.excerpt}} </p>
       </blockquote>
       <div id="show-content"></div>
     </div>
+  </div>
+  <section id="comments">
+    <vue-disqus-embed :title="disqusTit" :identifier="identifier" :url="disqusUrl" />
+  </section>
   </div>
 </template>
 
@@ -29,16 +29,27 @@ export default {
   data () {
     return {
       'content': '',
-      'converter': null
+      'converter': null,
+      path: '',
+      disqusUrl: '',
+      identifier: '',
+      disqusTit: ''
     }
   },
   mounted () {
     this.init()
     this.contentChanged()
+    console.dir(this.disqusUrl + this.identifier + this.disqusTit)
+    this.disqusUrl = this.post.text
+    this.identifier = this.post.id
+    this.disqusTit = this.post.title
+    console.dir(this.disqusTit)
   },
   created () {
     // console.dir(this.$router.post.id)
+    // alert('ds')
     this.post = qs.parse(window.localStorage.getItem('post'))
+    this.path = this.post.text
   },
   watch: {
     'content': 'contentChanged'
@@ -54,7 +65,8 @@ export default {
     },
     contentChanged () {
       // var html = this.converter.makeHtml(this.content)
-      var helloWorld = require('@/articles/hello-world.md')
+      var path = this.path
+      var helloWorld = require('@/articles/' + path)
       var html = this.converter.makeHtml(helloWorld)
       document.getElementById('show-content').innerHTML = html
       var a = document.querySelectorAll('#show-content a')
@@ -84,4 +96,9 @@ div {
 .articlePie{
   background: #fff;
 }
+#comments{
+  padding: 10px;
+  margin: 40px 0;
+}
+
 </style>

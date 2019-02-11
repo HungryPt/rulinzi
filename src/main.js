@@ -17,6 +17,11 @@ import solid from '@fortawesome/fontawesome-free-solid'
 import regular from '@fortawesome/fontawesome-free-regular'
 import brands from '@fortawesome/fontawesome-free-brands'
 import animate from 'animate.css'
+import VueDisqusEmbed from 'vue-disqus-embed'
+
+Vue.use(VueDisqusEmbed, {
+  shortname: 'rulinzi2'
+})
 Vue.use(animate)
 Vue.config.productionTip = false
 Vue.use(Element, {

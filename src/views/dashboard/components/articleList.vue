@@ -8,10 +8,11 @@
               <p></p><blockquote>
               <p>{{post.excerpt}} </p>
               </blockquote><p></p>
-              <p class="article-more-link">
+              <div class="article-more-link" id="more">
                   <!-- <a href="/articlePie" @click="articleLink(post)">查看更多</a> -->
                   <router-link @click.native="articleLink(post)" to="/articlePie">查看更多</router-link>
-              </p>
+                  <!-- <a  href="http://localhost:8080/#/test" @click.native=articleLink(post)>uhfdue</a> -->
+              </div>
             </div>
             <footer class="article-footer">
               <div class="share-container">
@@ -110,5 +111,17 @@ export default {
 } */
 .article-footer a:hover {
   color: #565a5f;
+}
+p{
+  margin: 0 0 25px 0;
+  font-size: 14px;
+  line-height: 3;
+  text-indent:20px;
+  text-align: justify;
+  /*letter-spacing:1px;*/
+}
+#more{
+    line-height: 1.6em;
+    margin: 1.6em 0;
 }
 </style>

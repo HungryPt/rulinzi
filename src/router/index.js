@@ -13,7 +13,8 @@ export default new Router({
     {
       path: '/',
       name: 'home',
-      component: layout
+      component: layout,
+      redirect: 'articleList'
     },
     {
       path: '/editor',
@@ -50,6 +51,6 @@ export default new Router({
       name: 'articlePie',
       component: layout
     }
-  ]
-  // mode: 'history'
+  ],
+  mode: 'history'
 })

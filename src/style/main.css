@@ -77,9 +77,18 @@ td {
   vertical-align: baseline;
 }
 body {
-  line-height: 1;
-  color: #000;
-  background: #fff;
+  color: #565a5f;
+  background: #f5f8f9;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  outline: 0;
+  font-weight: inherit;
+  font-style: inherit;
+  font-family: inherit;
+  font-size: 100%;
+  vertical-align: baseline;
+  font: 14px "open sans", "Helvetica Neue", "Microsoft Yahei", Helvetica, Arial, sans-serif;
 }
 ol,
 ul {

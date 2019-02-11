@@ -53,7 +53,7 @@ export default {
           top: 0,
           behavior: 'smooth'
         })
-      }, 400)
+      }, 500)
     }
   },
   computed: {
